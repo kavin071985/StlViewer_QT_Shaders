@@ -1,0 +1,14 @@
+# Directories
+.vs/
+bin/
+bin-int/
+builds ITERation/
+
+#Files
+.user
+FragmentShaderCode.glsl
+VertexShaderCode.glsl
+stlviewer.sdf
+stlviewer.v11.suo
+stlviewer.vcxproj.filters
+stlviewer.vcxproj.user
