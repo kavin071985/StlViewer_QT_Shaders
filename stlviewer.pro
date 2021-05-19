@@ -4,38 +4,55 @@
 
 TEMPLATE = app
 TARGET = stlviewer
-DESTDIR = ./debug
-QT += core opengl axserver axcontainer gui
-CONFIG += console   qt debug   
-DEFINES += _WINDOWS QT_DLL QT_OPENGL_LIB QT_HAVE_MMX QT_HAVE_3DNOW QT_HAVE_SSE QT_HAVE_MMXEXT QT_HAVE_SSE2
+DESTDIR = ./bin/debug
+QT += core opengl gui
+CONFIG += debug console
+DEFINES += _CONSOLE _CONSOLE _CONSOLE _WINDOWS QT_DLL QT_OPENGL_LIB QT_HAVE_MMX QT_HAVE_3DNOW QT_HAVE_SSE QT_HAVE_MMXEXT QT_HAVE_SSE2 QT_DLL QT_HAVE_MMX QT_HAVE_3DNOW QT_HAVE_SSE QT_HAVE_MMXEXT QT_HAVE_SSE2 QT_DLL QT_HAVE_MMX QT_HAVE_3DNOW QT_HAVE_SSE QT_HAVE_MMXEXT QT_HAVE_SSE2 QT_DLL QT_HAVE_MMX QT_HAVE_3DNOW QT_HAVE_SSE QT_HAVE_MMXEXT QT_HAVE_SSE2
 INCLUDEPATH += ./../shared \
     ./debug \
     $(QTDIR)/mkspecs/default \
     . \
     $(SolutionDir)/Middleware/glew-2.1.0/include \
     $(SolutionDir)/Middleware/glm \
-	$(SolutionDir)/primitives
-LIBS += -L"$(SolutionDir)/Middleware/glew-2.1.0/lib/Release/Win32" \
-    -lglew32 \
+    $(SolutionDir)/src \
+    ./GeneratedFiles/debug \
+    $(QTDIR)/mkspecs/default \
+    ./GeneratedFiles/debug \
+    $(QTDIR)/mkspecs/default \
+    ./src \
+    ./GeneratedFiles/debug \
+    ./../../../../Qt/4.8.7/mkspecs/default
+LIBS += -L"../../../../../Qt/4.8.7/lib" \
+    -L"$(SolutionDir)/Middleware/glew-2.1.0/lib/Release/Win32" \
     -lglu32 \
     -lopengl32 \
     -lgdi32 \
-    -luser32
+    -luser32 \
+    -lglew32
 DEPENDPATH += .
 MOC_DIR += ./GeneratedFiles/debug
 OBJECTS_DIR += debug
 UI_DIR += ./GeneratedFiles
 RCC_DIR += ./GeneratedFiles
-HEADERS += ./GLWidget.h \
-	./primitives\Vertex.h \
-	./Camera.h \
-	./primitives\Geometry.h \
-	./Window.h \
-	./primitives\ShapeData.h\
-
-SOURCES += ./main.cpp \
-    ./GLWidget.cpp \
-    ./ShaderCode.cpp \
-	./Camera.cpp \
-	./Window.cpp \
-	./primitives\Geometry.cpp \
+HEADERS += ./src/Camera.h \
+    ./src/Geometry.h \
+    ./src/IndexBuffer.h \
+    ./src/Renderer.h \
+    ./src/Shader.h \
+    ./src/ShapeData.h \
+    ./src/Vertex.h \
+    ./src/VertexArray.h \
+    ./src/VertexBuffer.h \
+    ./src/VertexBufferLayout.h \
+    ./src/GLWidget.h \
+    ./src/Window.h
+SOURCES += ./src/Camera.cpp \
+    ./src/GLWidget.cpp \
+    ./src/Geometry.cpp \
+    ./src/IndexBuffer.cpp \
+    ./src/Renderer.cpp \
+    ./src/Shader.cpp \
+    ./src/VertexArray.cpp \
+    ./src/VertexBuffer.cpp \
+    ./src/Window.cpp \
+    ./src/main.cpp
